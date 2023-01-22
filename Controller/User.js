@@ -21,7 +21,7 @@ const UserRegister=async(req,res)=>{
             password: hash,
             Batch: req.body.Batch,
             Department: req.body.Department,
-      
+            Gender:req.body.Gender,
         })
         const result=await user.save()
         res.send(result)
@@ -34,7 +34,6 @@ const UserRegister=async(req,res)=>{
 
 const UserLogin = async(req, res) => {
     try {
-        console.log( req.body);
         let userData=await User.findOne({email: req.body.email});
         if (!userData) {
             return res.status(400).send("email not found")

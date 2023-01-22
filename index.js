@@ -15,11 +15,10 @@ app.use(bodyParser.json());
 
 DB()
 
-
 app.use('/api',Admin)
 app.use('/api', User)
 
 const port=process.env.PORT || 7000
-app.listen(process.env.PORT || 5000,() =>{
+app.listen(port,() =>{
     logger.log('info',`server is running in port ${port}`);
 })

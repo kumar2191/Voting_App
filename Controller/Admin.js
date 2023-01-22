@@ -1,6 +1,7 @@
 import {validateAdmin,Admin} from '../Schema/Admin.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { setDriver } from 'mongoose'
 
 const AdminRegister=async(req,res)=>{
     const email = req.body.email
@@ -11,6 +12,7 @@ const AdminRegister=async(req,res)=>{
     const exUser=await Admin.findOne({email: email})
     if(exUser){
         res.send("email is already taken")
+
     }
     else{
         let hash =await bcrypt.hash(req.body.password,10)

@@ -10,8 +10,8 @@ router.post('/User/Login',User.UserLogin)
 router.get('/User/Profile',auth,User.profileView)
 router.post('/User/ProfileUpate',auth,User.Update)
 
-
-
+router.get('/User/GetAll',User.getAll)
+router.post('/User/ChangePassword',auth,User.ChangePassword)
 
 router.post('/User/ApplicationForm/Register',[auth],ApplicationForm.ApplicationRegister)
 
